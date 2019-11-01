@@ -104,7 +104,7 @@ static CGFloat const kSendButtonWidth = 60;
 
 - (UIButton *)closeButton {
     UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *closeButtonImage = [UIImage imageNamed:@"feedback_back"];
+    UIImage *closeButtonImage = [UIImage sdImageNamed:@"feedback_back"];
     [closeButton setImage:closeButtonImage forState:UIControlStateNormal];
     closeButton.frame = CGRectMake(0, 0, closeButtonImage.size.width, closeButtonImage.size.height);
     closeButton.autoresizingMask = UIViewAutoresizingFlexibleHeight;
@@ -141,7 +141,7 @@ static CGFloat const kSendButtonWidth = 60;
     if (_addImageButton == nil) {
         _addImageButton = [[UIButton alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame) - kInputViewHeight, kAddImageButtonWidth, kInputViewHeight)];
         _addImageButton.backgroundColor = kInputViewColor;
-        [_addImageButton setImage:[UIImage imageNamed:@"feedback_add_image"] forState:UIControlStateNormal];
+        [_addImageButton setImage:[UIImage sdImageNamed:@"feedback_add_image"] forState:UIControlStateNormal];
         _addImageButton.contentMode = UIViewContentModeScaleAspectFill;
         [_addImageButton addTarget:self action:@selector(addImageButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     }

@@ -7,6 +7,7 @@
 
 #import "LCUserFeedbackReplyCell.h"
 #import "LCUserFeedbackReply.h"
+#import "UIImage+leancloud.h"
 
 static CGFloat const kLabelVerticalPadding = 10;
 static CGFloat const kTimestampLabelHeight = 18;
@@ -224,9 +225,9 @@ static CGFloat const kBubbleArrowHeight = 14; /**< 气泡尖嘴的高度 */
 
 - (UIImage *)backgroundImageForFeedbackReply:(LCUserFeedbackReply *)reply {
 	if (reply.type == LCReplyTypeDev) {
-		return [[UIImage imageNamed:@"feedback_bg_1"] stretchableImageWithLeftCapWidth:20 topCapHeight:16];
+		return [[UIImage sdImageNamed:@"feedback_bg_1"] stretchableImageWithLeftCapWidth:20 topCapHeight:16];
 	} else {
-		return [[UIImage imageNamed:@"feedback_bg_2"] stretchableImageWithLeftCapWidth:1 topCapHeight:16];;
+		return [[UIImage sdImageNamed:@"feedback_bg_2"] stretchableImageWithLeftCapWidth:1 topCapHeight:16];;
 	}
 }
 

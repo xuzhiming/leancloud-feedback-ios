@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <AVOSCloud/AVOSCloud.h>
+#import "UIImage+leancloud.h"
 
 #ifdef DEBUG
 #   define FLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
