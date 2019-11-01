@@ -52,7 +52,7 @@ static CGFloat const kSendButtonWidth = 60;
         _navigationBarStyle = LCUserFeedbackNavigationBarStyleBlue;
         _contactHeaderHidden = NO;
         _feedbackCellFont = [UIFont systemFontOfSize:16];
-        _presented = YES;
+//        _presented = YES;
     }
     return self;
 }
@@ -128,7 +128,7 @@ static CGFloat const kSendButtonWidth = 60;
 
 - (UITableView *)tableView {
     if (_tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame) - kInputViewHeight)
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame) - kInputViewHeight - [LCUtils bottomSafeAreaH])
                                                       style:UITableViewStylePlain];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.delegate = self;
@@ -139,7 +139,7 @@ static CGFloat const kSendButtonWidth = 60;
 
 - (UIButton *)addImageButton {
     if (_addImageButton == nil) {
-        _addImageButton = [[UIButton alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame) - kInputViewHeight, kAddImageButtonWidth, kInputViewHeight)];
+        _addImageButton = [[UIButton alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame) - kInputViewHeight - [LCUtils bottomSafeAreaH], kAddImageButtonWidth, kInputViewHeight)];
         _addImageButton.backgroundColor = kInputViewColor;
         [_addImageButton setImage:[UIImage sdImageNamed:@"feedback_add_image"] forState:UIControlStateNormal];
         _addImageButton.contentMode = UIViewContentModeScaleAspectFill;
@@ -151,7 +151,7 @@ static CGFloat const kSendButtonWidth = 60;
 - (UIButton *)sendButton {
     if (_sendButton == nil) {
         _sendButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        _sendButton.frame = CGRectMake(CGRectGetWidth(self.view.frame) - kSendButtonWidth, CGRectGetHeight(self.view.frame) - kInputViewHeight, kSendButtonWidth, kInputViewHeight);
+        _sendButton.frame = CGRectMake(CGRectGetWidth(self.view.frame) - kSendButtonWidth, CGRectGetHeight(self.view.frame) - kInputViewHeight - [LCUtils bottomSafeAreaH], kSendButtonWidth, kInputViewHeight);
         [_sendButton.titleLabel setFont:[UIFont systemFontOfSize:12]];
         [_sendButton setTitleColor:[UIColor colorWithRed:137.0f/255 green:137.0f/255 blue:137.0f/255 alpha:1] forState:UIControlStateNormal];
         [_sendButton setTitle:LCLocalizedString(@"Send") forState:UIControlStateNormal];

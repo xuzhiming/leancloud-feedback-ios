@@ -33,10 +33,14 @@
     LCUserFeedbackViewController *feedbackViewController = [[LCUserFeedbackViewController alloc] init];
     feedbackViewController.feedbackTitle = title;
     feedbackViewController.contact = contact;
+    if (viewController.navigationController) {
+        [viewController.navigationController pushViewController:feedbackViewController animated:YES];
+    }else {
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:feedbackViewController];
+        [viewController presentViewController:navigationController animated:YES completion:^{
+        }];
+    }
     
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:feedbackViewController];
-    [viewController presentViewController:navigationController animated:YES completion:^{
-    }];
 }
 
 - (void)syncFeedbackThreadsWithBlock:(NSString *)title contact:(NSString *)contact block:(AVArrayResultBlock)block {

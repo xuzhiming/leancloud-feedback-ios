@@ -131,5 +131,11 @@ block(first_param, error); \
     return error;
 }
 
++ (CGFloat)bottomSafeAreaH {
+    UIWindow *keyWindow = [[[UIApplication sharedApplication] delegate] window];
+     // 获取底部安全区域高度，iPhone X 竖屏下为 34.0，横屏下为 21.0，其他类型设备都为 0
+    CGFloat bottomSafeInset = keyWindow.safeAreaInsets.bottom;
+    return bottomSafeInset;
+}
 @end
 
