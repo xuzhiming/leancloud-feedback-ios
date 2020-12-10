@@ -65,7 +65,7 @@
         [request setValue:[AVUser currentUser].sessionToken forHTTPHeaderField:@"X-LC-Session"];
     }
     
-    [request setTimeoutInterval:kAVDefaultNetworkTimeoutInterval];
+//    [request setTimeoutInterval:kAVDefaultNetworkTimeoutInterval];
     [request setHTTPMethod:method];
     if ([method isEqualToString:@"GET"] || [method isEqualToString:@"DELETE"]) {
         url = [NSURL URLWithString:[[url absoluteString] stringByAppendingFormat:@"?%@", [self queryStringFromParameters:parameters]]];
